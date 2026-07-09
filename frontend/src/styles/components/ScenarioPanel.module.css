@@ -1,0 +1,389 @@
+/* Created by Metrum AI for Solidigm */
+
+/* Scenario Panel - Fully Responsive */
+
+.container {
+  container-type: inline-size;
+  container-name: scenario-panel;
+  padding: clamp(0.5rem, 1.2cqi, 0.875rem);
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: clamp(0.375rem, 2cqi, 0.75rem);
+}
+
+.headerIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border-radius: 0.375rem;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  flex-shrink: 0;
+}
+
+.headerIcon {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  color: var(--solidigm-accent);
+}
+
+.title {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.6875rem, 4cqi, 0.8125rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* -------------------------------------------
+   Scenario Grid
+   Auto-responsive: 2 columns when space allows,
+   collapses to 1 column when each cell < 7rem
+   ------------------------------------------- */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.375rem, 2cqi, 0.625rem);
+}
+
+/* -------------------------------------------
+   Scenario Button
+   ------------------------------------------- */
+.scenarioButton {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.25rem, 1.5cqi, 0.5rem);
+  width: 100%;
+  padding: clamp(0.5rem, 2.5cqi, 0.875rem) clamp(0.5rem, 3cqi, 1rem);
+  background: linear-gradient(145deg, #fafafa 0%, #f5f5f5 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: clamp(0.5rem, 2.5cqi, 0.75rem);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* Text group */
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.0625rem;
+  min-width: 0;
+}
+
+/* Category Tag */
+.categoryTag {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.4375rem, 3.5cqi, 0.6875rem);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.scenarioButton.selected .categoryTag {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Shimmer overlay */
+.scenarioButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.scenarioButton:hover::before {
+  left: 100%;
+}
+
+/* Hover */
+.scenarioButton:hover:not(:disabled) {
+  background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+  border-color: var(--accent-color, var(--color-lmcache));
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px var(--accent-color, var(--color-lmcache)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Selected */
+.scenarioButton.selected {
+  background: linear-gradient(135deg, #00083f 0%, #2f006b 100%);
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow:
+    0 4px 16px rgba(99, 102, 241, 0.3),
+    0 0 0 1px rgba(167, 139, 250, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.scenarioButton.selected::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(167, 139, 250, 0.15) 50%, transparent 100%);
+}
+
+.scenarioButton.selected:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00083f 0%, #2f006b 100%);
+  box-shadow:
+    0 6px 20px rgba(47, 0, 107, 0.4),
+    0 0 0 1px rgba(47, 0, 107, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Disabled */
+.scenarioButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------
+   Icon Wrapper
+   ------------------------------------------- */
+.scenarioIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.25rem, 7cqi, 2rem);
+  height: clamp(1.25rem, 7cqi, 2rem);
+  min-width: clamp(1.25rem, 7cqi, 2rem);
+  background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+  border-radius: clamp(0.375rem, 2cqi, 0.625rem);
+  color: var(--accent-color, var(--color-lmcache));
+  flex-shrink: 0;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.scenarioButton:hover .scenarioIcon {
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  color: var(--accent-color, var(--color-lmcache));
+}
+
+/* Selected icon glassmorphism */
+.scenarioButton.selected .scenarioIcon {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.scenarioIcon svg {
+  width: 55%;
+  height: 55%;
+}
+
+/* Label */
+.scenarioLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5625rem, 4cqi, 0.8125rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.scenarioButton.selected .scenarioLabel {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Active indicator */
+.activeIndicator {
+  position: absolute;
+  top: 0.375rem;
+  right: 0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: #a78bfa;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(167, 139, 250, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0.375rem rgba(167, 139, 250, 0.6);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+    box-shadow: 0 0 0.625rem rgba(167, 139, 250, 0.8);
+  }
+}
+
+/* =============================================
+   MULTI-USER BUTTON
+   ============================================= */
+
+.multiUserButton {
+  background: linear-gradient(145deg, #f5f0ff 0%, #ede5ff 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+  animation: multiUserGlow 3s ease-in-out infinite;
+}
+
+.multiUserButton::before {
+  background: linear-gradient(
+    105deg, transparent 0%, transparent 35%,
+    rgba(139, 92, 246, 0.12) 42%, rgba(167, 139, 250, 0.3) 50%,
+    rgba(139, 92, 246, 0.12) 58%, transparent 65%, transparent 100%
+  );
+  animation: shineSweep 2.8s ease-in-out infinite;
+  transition: none;
+}
+
+.multiUserButton:hover::before {
+  animation: shineSweep 2.2s ease-in-out infinite;
+}
+
+.multiUserButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.multiUserButton:hover::after {
+  opacity: 1;
+  animation: ripplePulse 2s ease-in-out infinite;
+}
+
+.multiUserButton:hover:not(:disabled) {
+  background: linear-gradient(145deg, #ece2ff 0%, #e0d2ff 100%);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow:
+    0 4px 20px rgba(139, 92, 246, 0.2),
+    0 0 0 1px rgba(139, 92, 246, 0.3),
+    0 0 30px rgba(139, 92, 246, 0.08);
+  transform: translateY(-1px);
+}
+
+.multiUserButton .scenarioIcon {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow:
+    0 2px 8px rgba(139, 92, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.multiUserButton.selected {
+  border: 1.5px solid rgba(167, 139, 250, 0.4);
+  animation: multiUserGlowSelected 3s ease-in-out infinite;
+}
+
+.multiUserButton.selected::before {
+  background: linear-gradient(
+    105deg, transparent 0%, transparent 35%,
+    rgba(255, 255, 255, 0.04) 42%, rgba(167, 139, 250, 0.15) 50%,
+    rgba(255, 255, 255, 0.04) 58%, transparent 65%, transparent 100%
+  );
+}
+
+.multiUserButton.selected:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00083f 0%, #2f006b 100%);
+  box-shadow:
+    0 6px 24px rgba(47, 0, 107, 0.5),
+    0 0 0 1px rgba(167, 139, 250, 0.5),
+    0 0 20px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.multiUserButton.selected .scenarioIcon {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+
+@keyframes multiUserGlow {
+  0%, 100% {
+    border-color: rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+  50% {
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.18), 0 0 4px rgba(139, 92, 246, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+}
+
+@keyframes multiUserGlowSelected {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3), 0 0 0 1px rgba(167, 139, 250, 0.3), 0 0 12px rgba(139, 92, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(99, 102, 241, 0.4), 0 0 0 1px rgba(167, 139, 250, 0.5), 0 0 24px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes shineSweep {
+  0%   { left: -100%; }
+  50%  { left: 200%; }
+  100% { left: 200%; }
+}
+
+@keyframes ripplePulse {
+  0%, 100% { transform: scale(0.98); opacity: 0.6; }
+  50%      { transform: scale(1);    opacity: 1;   }
+}
+
+/* =============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================= */
+
+@media (max-width: 1024px) {
+  .scenarios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.375rem;
+  }
+
+  .scenarios {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .scenarioButton {
+    padding: 0.375rem 0.5rem;
+  }
+}

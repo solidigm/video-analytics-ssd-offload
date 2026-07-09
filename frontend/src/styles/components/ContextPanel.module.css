@@ -1,0 +1,225 @@
+/* Created by Metrum AI for Solidigm */
+
+/* ContextPanel Component Styles */
+
+.container {
+  background: #161B22;
+  border-top: 1px solid #30363D;
+  padding: 1rem 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 16px;
+  height: 16px;
+  color: #00A3E0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #D1D5DB;
+}
+
+.badge {
+  padding: 0.125rem 0.5rem;
+  background: rgba(91, 79, 196, 0.2);
+  color: var(--color-lmcache);
+  font-size: 12px;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: #21262D;
+  border: 1px solid #30363D;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  color: #D1D5DB;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.uploadButton:hover:not(:disabled) {
+  background: #30363D;
+  color: var(--white);
+}
+
+.uploadIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.fileList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #21262D;
+  border: 1px solid #30363D;
+  border-radius: var(--radius-lg);
+}
+
+.fileIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-lmcache);
+}
+
+.fileName {
+  font-size: 14px;
+  color: #D1D5DB;
+}
+
+.fileStats {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.removeButton {
+  margin-left: 0.25rem;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  color: #6B7280;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.removeButton:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #F87171;
+}
+
+.removeIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.textarea {
+  width: 100%;
+  height: 128px;
+  background: #0D1117;
+  border: 1px solid #30363D;
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  font-family: 'Geist Mono', monospace;
+  color: #D1D5DB;
+  resize: none;
+  margin-bottom: 1rem;
+}
+
+.textarea::placeholder {
+  color: #6B7280;
+}
+
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #30363D;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sendButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, var(--color-lmcache), #00A3E0);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(91, 79, 196, 0.2);
+}
+
+.sendButton:hover:not(:disabled) {
+  background: linear-gradient(to right, #8AD100, #00B8FF);
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #7C3AED;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.clearButton:hover {
+  background: #6D28D9;
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.status {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.statusIcon {
+  width: 12px;
+  height: 12px;
+  color: #22C55E;
+}

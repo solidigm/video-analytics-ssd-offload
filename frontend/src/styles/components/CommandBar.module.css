@@ -1,0 +1,424 @@
+/* Created by Metrum AI for Solidigm */
+
+/* CommandBar - Floating Glass Command Center */
+
+.container {
+  position: fixed;
+  bottom: 0;
+  left: calc(25% + 1.25rem + 1rem);
+  right: calc(340px + 1.25rem + 1rem);
+  z-index: 1000;
+  padding: clamp(0.375rem, 1.5cqi, 0.625rem) clamp(0.75rem, 3cqi, 1.25rem) clamp(0.75rem, 3cqi, 1.25rem);
+  pointer-events: none;
+  container-type: inline-size;
+  container-name: command-bar;
+}
+
+.container > * {
+  pointer-events: auto;
+}
+
+/* Input Wrapper - Premium Glass Card */
+.inputWrapper {
+  position: relative;
+  max-width: min(45rem, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2cqi, 0.875rem);
+  padding: clamp(0.5rem, 1.8cqi, 0.75rem) clamp(0.5rem, 1.8cqi, 0.75rem) clamp(0.5rem, 1.8cqi, 0.75rem) clamp(0.875rem, 3.5cqi, 1.5rem);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(1.5rem);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: clamp(0.875rem, 4cqi, 1.375rem);
+  box-shadow:
+    0 0.25rem 1rem rgba(0, 0, 0, 0.08),
+    0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04),
+    0 0 0 0.0625rem rgba(255, 255, 255, 0.8) inset;
+  transition: all var(--motion-duration-normal) var(--motion-smooth);
+}
+
+.inputWrapper:focus-within {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 0.25rem 1.25rem rgba(0, 0, 0, 0.1),
+    0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04),
+    0 0 0 0.0625rem rgba(255, 255, 255, 0.8) inset;
+}
+
+/* Context Badge */
+.contextBadge {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1cqi, 0.4375rem);
+  padding: clamp(0.25rem, 1cqi, 0.4375rem) clamp(0.5rem, 2cqi, 0.875rem);
+  background: var(--color-lmcache-light);
+  border-radius: 6.25rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: clamp(0.5625rem, 2.5cqi, 0.75rem);
+  font-weight: 500;
+  color: var(--color-lmcache);
+  flex-shrink: 0;
+}
+
+.contextDot {
+  width: clamp(0.25rem, 1.2cqi, 0.4375rem);
+  height: clamp(0.25rem, 1.2cqi, 0.4375rem);
+  background: var(--color-lmcache);
+  border-radius: 50%;
+  animation: contextPulse 2s ease-in-out infinite;
+}
+
+@keyframes contextPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Input Field (textarea) */
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(0.1875rem, 0.8cqi, 0.3125rem) 0;
+  background: transparent;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.6875rem, 3cqi, 0.8125rem);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+  max-height: clamp(2.5rem, 8cqi, 4rem);
+}
+
+.input:focus,
+.input:focus-visible {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:disabled {
+  opacity: 0.6;
+}
+
+/* Dropdown Container */
+.dropdownContainer {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dropdownToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.75rem, 8cqi, 2.5rem);
+  height: clamp(1.75rem, 8cqi, 2.5rem);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: clamp(0.5rem, 2.5cqi, 0.75rem);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dropdownToggle:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.dropdownToggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dropdownIcon {
+  width: clamp(0.875rem, 4cqi, 1.25rem);
+  height: clamp(0.875rem, 4cqi, 1.25rem);
+  color: var(--solidigm-accent);
+  transition: transform 0.2s ease;
+}
+
+.dropdownIconOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  bottom: calc(100% + clamp(0.375rem, 1.5cqi, 0.625rem));
+  left: 0;
+  right: 0;
+  max-height: clamp(15rem, 60cqi, 22.5rem);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(1rem);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: clamp(0.625rem, 3cqi, 1rem);
+  box-shadow:
+    0 0.5rem 2rem rgba(0, 0, 0, 0.12),
+    0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdownHeader {
+  padding: clamp(0.5rem, 2cqi, 0.875rem) clamp(0.75rem, 3cqi, 1.125rem);
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(0.5625rem, 2.5cqi, 0.75rem);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.dropdownList {
+  max-height: clamp(11.25rem, 50cqi, 18.75rem);
+  overflow-y: auto;
+  padding: clamp(0.375rem, 1.5cqi, 0.625rem);
+}
+
+.dropdownItem {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 2cqi, 0.875rem);
+  padding: clamp(0.5rem, 2cqi, 0.875rem);
+  background: transparent;
+  border: none;
+  border-radius: clamp(0.5rem, 2.5cqi, 0.75rem);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.dropdownItem:hover {
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.dropdownItemActive {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.dropdownItemNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.125rem, 5cqi, 1.625rem);
+  height: clamp(1.125rem, 5cqi, 1.625rem);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: clamp(0.25rem, 1.5cqi, 0.5rem);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: clamp(0.5625rem, 2.5cqi, 0.75rem);
+  font-weight: 600;
+  color: var(--solidigm-accent);
+  flex-shrink: 0;
+}
+
+.dropdownItemText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.6875rem, 3cqi, 0.875rem);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Send Button */
+.sendButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.125rem, 10cqi, 3rem);
+  height: clamp(2.125rem, 10cqi, 3rem);
+  background: var(--penn-blue);
+  border: none;
+  border-radius: clamp(0.625rem, 3cqi, 1rem);
+  cursor: pointer;
+  transition: all var(--motion-duration-fast) var(--motion-smooth);
+  flex-shrink: 0;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: var(--color-lmcache);
+  transform: scale(1.05);
+}
+
+.sendButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.sendButton:disabled {
+  background: var(--color-border);
+  cursor: not-allowed;
+}
+
+.sendIcon {
+  width: clamp(1rem, 4.5cqi, 1.375rem);
+  height: clamp(1rem, 4.5cqi, 1.375rem);
+  color: var(--white);
+}
+
+/* Status Line */
+.statusLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2cqi, 0.875rem);
+  margin-top: clamp(0.375rem, 1.5cqi, 0.75rem);
+  padding: 0 clamp(0.75rem, 3cqi, 1.25rem);
+}
+
+.statusText {
+  font-size: clamp(0.625rem, 2.8cqi, 0.8125rem);
+  color: var(--color-text-muted);
+}
+
+.statusLoading {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: clamp(0.625rem, 2.8cqi, 0.8125rem);
+  font-weight: 500;
+  color: var(--color-lmcache);
+  animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive - Right sidebar narrower */
+@media (max-width: 1400px) {
+  .container {
+    left: calc(25% + 1.25rem + 1rem);
+    right: calc(300px + 1.25rem + 1rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    left: calc(22% + 1.25rem + 0.75rem);
+    right: calc(280px + 1.25rem + 0.75rem);
+  }
+}
+
+/* Responsive - Single column, sidebars hidden */
+@media (max-width: 1024px) {
+  .container {
+    left: 0;
+    right: 0;
+    padding: clamp(0.375rem, 1.5vw, 0.625rem) clamp(0.75rem, 3vw, 1.25rem) clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  .inputWrapper {
+    max-width: min(40rem, 100%);
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .container {
+    left: 0;
+    right: 0;
+    padding: 0.5rem 0.75rem 1rem;
+  }
+
+  .inputWrapper {
+    max-width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 0.875rem;
+    border-radius: 1rem;
+    gap: 0.375rem;
+  }
+
+  .input {
+    font-size: clamp(0.625rem, 2.2vw, 0.75rem);
+    max-height: 3.5rem;
+  }
+
+  .dropdown {
+    max-height: 16rem;
+  }
+
+  .dropdownItemText {
+    font-size: clamp(0.6875rem, 2vw, 0.8125rem);
+  }
+}
+
+/* Responsive - Small mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.375rem 0.5rem 0.75rem;
+  }
+
+  .inputWrapper {
+    padding: 0.375rem 0.375rem 0.375rem 0.75rem;
+    border-radius: 0.875rem;
+    gap: 0.25rem;
+  }
+
+  .input {
+    font-size: 0.625rem;
+    max-height: 3rem;
+  }
+
+  .input::placeholder {
+    font-size: 0.625rem;
+  }
+
+  .sendButton {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.625rem;
+  }
+
+  .sendIcon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .dropdownToggle {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.5rem;
+  }
+
+  .dropdownIcon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .dropdown {
+    max-height: 12rem;
+    border-radius: 0.75rem;
+  }
+
+  .dropdownHeader {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.5625rem;
+  }
+
+  .dropdownItem {
+    padding: 0.375rem;
+    gap: 0.375rem;
+  }
+
+  .dropdownItemNumber {
+    width: 1.125rem;
+    height: 1.125rem;
+    font-size: 0.5625rem;
+  }
+
+  .dropdownItemText {
+    font-size: 0.6875rem;
+  }
+
+  .statusText,
+  .statusLoading {
+    font-size: 0.5625rem;
+  }
+}

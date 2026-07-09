@@ -1,0 +1,670 @@
+/* Created by Metrum AI for Solidigm */
+
+/* AnalyticsDashboard Component Styles */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: auto;
+  background: var(--color-bg-secondary);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.75rem 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.headerIconInner {
+  width: 20px;
+  height: 20px;
+  color: var(--solidigm-primary);
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerTitle {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.headerSubtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerSubtitleText {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.statusBadge {
+  font-size: 9px;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.statusBadgeLive {
+  background: rgba(91, 79, 196, 0.2);
+  color: var(--color-lmcache);
+}
+
+.statusBadgeConnecting {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.refreshIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.closeButton {
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.closeIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.main {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.statsRow {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.statCard {
+  padding: 0.75rem;
+}
+
+.statCardGreen {
+  background: rgba(91, 79, 196, 0.1);
+  border-color: rgba(91, 79, 196, 0.3);
+}
+
+.statCardBlue {
+  background: rgba(0, 102, 204, 0.1);
+  border-color: rgba(0, 102, 204, 0.3);
+}
+
+.statCardRed {
+  background: rgba(100, 116, 139, 0.1);
+  border-color: rgba(100, 116, 139, 0.3);
+}
+
+.statCardGold {
+  background: rgba(244, 211, 94, 0.15);
+  border-color: rgba(244, 211, 94, 0.35);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.statIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+
+.statValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.statValueGreen { color: var(--color-lmcache); }
+.statValueBlue { color: var(--solidigm-blue-secondary); }
+.statValueRed { color: var(--color-baseline); }
+.statValueGold { color: #b8860b; }
+
+.chartSection {
+  grid-column: span 6;
+  padding: 1rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.sectionIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.legendDotBaseline { background: var(--color-baseline); }
+.legendDotLmcache { background: var(--color-lmcache); }
+
+.legendLabel {
+  color: var(--color-text-secondary);
+}
+
+.chartArea {
+  height: 144px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.375rem;
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  background: var(--color-bg-tertiary);
+}
+
+.barGroup {
+  flex: 1;
+  display: flex;
+  gap: 0.125rem;
+  align-items: flex-end;
+}
+
+.chartBar {
+  flex: 1;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: all var(--transition-fast);
+}
+
+.chartEmpty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.chartEmptyContent {
+  text-align: center;
+}
+
+.chartEmptyIcon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 0.25rem;
+  opacity: 0.5;
+}
+
+.avgStats {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.avgStatCard {
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  text-align: center;
+  background: var(--color-bg-tertiary);
+}
+
+.avgStatLabel {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+
+.avgStatValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.gpuSection {
+  grid-column: span 6;
+  padding: 1rem;
+}
+
+.gpuList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gpuItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gpuHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.gpuName {
+  color: var(--color-text-primary);
+}
+
+.gpuValue {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 700;
+}
+
+.gpuBar {
+  height: 16px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+}
+
+.gpuBarFill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.gpuBarLmcache {
+  background: linear-gradient(to right, var(--color-lmcache), #8dd100);
+}
+
+.gpuBarBaseline {
+  background: linear-gradient(to right, var(--color-baseline), #ff6b6b);
+}
+
+.gpuBarVlm {
+  background: linear-gradient(to right, var(--solidigm-blue-secondary), #3399ff);
+}
+
+.gpuEfficiency {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  background: var(--color-bg-tertiary);
+}
+
+.gpuEfficiencyLabel {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.gpuEfficiencyValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-lmcache);
+}
+
+.memorySection {
+  grid-column: span 4;
+  padding: 1rem;
+}
+
+.memoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.memoryItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.memoryHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.memoryLabel {
+  color: var(--color-text-secondary);
+}
+
+.memoryValue {
+  color: var(--color-text-primary);
+}
+
+.memoryBar {
+  height: 8px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+}
+
+.memoryBarFill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(to right, var(--solidigm-blue-secondary), var(--solidigm-accent));
+}
+
+.cacheSection {
+  grid-column: span 4;
+  padding: 1rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.cacheTitle {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--penn-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.cacheTitleIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-lmcache);
+}
+
+.cacheGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.cacheItem {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.cacheItemLabel {
+  font-size: 9px;
+  color: var(--color-text-muted);
+}
+
+.cacheItemValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cacheItemValueGreen { color: var(--color-lmcache); }
+.cacheItemValueGold { color: #FFB612; }
+.cacheItemValueBlue { color: var(--solidigm-blue-secondary); }
+
+.tokenSection {
+  grid-column: span 4;
+  padding: 1rem;
+}
+
+.tokenGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.tokenCard {
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid;
+}
+
+.tokenCardBaseline {
+  background: rgba(100, 116, 139, 0.05);
+  border-color: rgba(100, 116, 139, 0.2);
+}
+
+.tokenCardLmcache {
+  background: rgba(91, 79, 196, 0.05);
+  border-color: rgba(91, 79, 196, 0.2);
+}
+
+.tokenCardLabel {
+  font-size: 9px;
+  color: var(--color-text-secondary);
+}
+
+.tokenCardValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tokenCardUnit {
+  font-size: 8px;
+  color: var(--color-text-muted);
+}
+
+.tokenStats {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 12px;
+}
+
+.tokenStatRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tokenStatLabel {
+  color: var(--color-text-secondary);
+}
+
+.tokenStatValue {
+  font-family: 'Geist Mono', monospace;
+  color: var(--color-text-primary);
+}
+
+.summaryBanner {
+  grid-column: span 12;
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.summaryContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.summaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summaryIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-lmcache) 0%, var(--solidigm-accent) 100%);
+  box-shadow: 0 4px 12px rgba(91, 79, 196, 0.3);
+}
+
+.summaryIconInner {
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+}
+
+.summaryInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryBrands {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summaryBrandSolidigm {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.summarySubtext {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.summaryStats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summaryStatCard {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.summaryStatValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.summaryStatValueGreen { color: var(--color-lmcache); }
+.summaryStatValueGold { color: var(--naples-yellow); }
+.summaryStatValueWhite { color: var(--white); }
+.summaryStatValueSpring { color: var(--spring-green); }
+
+.summaryStatLabel {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}

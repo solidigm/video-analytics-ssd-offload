@@ -1,0 +1,8 @@
+# Git LFS tracking for video files (only files ≤120MB are committed — see videos/.gitignore)
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mkv filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.avi filter=lfs diff=lfs merge=lfs -text
+*.flv filter=lfs diff=lfs merge=lfs -text
+*.srt filter=lfs diff=lfs merge=lfs -text

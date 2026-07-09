@@ -1,0 +1,307 @@
+/* Created by Metrum AI for Solidigm */
+
+/* SSD Metrics Card - Solidigm Brand Theme */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #00083f 0%, #2f006b 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 0.75rem;
+}
+
+.headerDriveImg {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  padding-left: 1rem;
+  filter:
+    drop-shadow(0 0 3px #2f006b)
+    drop-shadow(0 0 6px rgba(67, 56, 202, 0.8))
+    drop-shadow(0 0 12px rgba(67, 56, 202, 0.5));
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  text-align: right;
+  margin-left: auto;
+}
+
+.title {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.liveBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 100px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px #10b981; }
+  50% { opacity: 0.5; box-shadow: 0 0 8px #10b981; }
+}
+
+.liveText {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.1em;
+}
+
+/* Chart Container */
+.chartContainer {
+  position: relative;
+  padding: 0.5rem 0.5rem 0;
+  height: 140px;
+}
+
+.chartLegend {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.legendDotRead {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+
+.legendDotWrite {
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
+
+.legendLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.875rem 1rem;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.statIconRead {
+  width: 14px;
+  height: 14px;
+  color: #10b981;
+}
+
+.statIconWrite {
+  width: 14px;
+  height: 14px;
+  color: #f59e0b;
+}
+
+.statLabel {
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.statValue {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.statUnit {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.statMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.avgChip {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.125rem 0.375rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+.deltaChip {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+.deltaIcon {
+  width: 10px;
+  height: 10px;
+}
+
+.deltaPositive {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.deltaNegative {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.15);
+}
+
+.deltaNeutral {
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.footerIcon {
+  width: 12px;
+  height: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footerLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-right: 0.25rem;
+}
+
+.footerValue {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 0.5rem;
+}
+
+.footerValueAccent {
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.footerDivider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Legacy grid styles for backward compatibility */
+.grid {
+  display: none;
+}

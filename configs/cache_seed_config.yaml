@@ -1,0 +1,105 @@
+# Created by Metrum AI for Solidigm
+
+# Cache Seeding Configuration
+# This file defines the videos and their context.json files for cache seeding
+
+# Video source directory and context output directory
+# Context JSON files are bundled in the repo under data/seeding/
+# Videos are tracked via Git LFS under videos/
+# In Docker: ./data is mounted at /data, ./videos is mounted at /videos
+context_source_dir: "/data/seeding"
+video_source_dir: "/videos"
+video_files_dir: "/videos"
+
+season_archive:
+  display_name: "Season Archive 2024"
+  videos:
+    - id: "6e3c2bed-1184-439b-9b23-3d62b3fb328c"  # Week 1
+      filename: "2024 Game 1 - Scunthorpe Alphas 31 Sheffield Giants 27 [Extended Highlights] [kRLDNuhNGfU].mkv"
+      display_name: "Week 1: Alphas vs Giants"
+      context_folder: "2024_Game_1_-_Scunthorpe_Alphas_31_Sheffield_Giants_27_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "0a56a001-b863-4051-8a83-59b0a531163b" # Week 2
+      filename: "2024 Game 2 - Yorkshire Rams 32 Scunthorpe Alphas 28 [Extended Highlights] [C4VrS8Ix8Kk].mkv"
+      display_name: "Week 2: Rams vs Alphas"
+      context_folder: "2024_Game_2_-_Yorkshire_Rams_32_Scunthorpe_Alphas_28_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "1b91ffee-70fd-479a-856f-b515a26dd647" # Week 3
+      filename: "2024 Game 3 - Scunthorpe Alphas 40 Yorkshire Rams 20 [Extended Highlights] [H5398ek5oDM].mkv"
+      display_name: "Week 3: Alphas vs Rams"
+      context_folder: "2024_Game_3_-_Scunthorpe_Alphas_40_Yorkshire_Rams_20_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "4745a017-1e09-468a-9fcb-ceadd5b247e9" # Week 4
+      filename: "2024 Game 4 - Chester Romans 24 Scunthorpe Alphas 21 [Extended Highlights] [0HPlT36U0S8].mkv"
+      display_name: "Week 4: Romans vs Alphas"
+      context_folder: "2024_Game_4_-_Chester_Romans_24_Scunthorpe_Alphas_21_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "f4506687-24a6-4204-889b-0dd1d9d31b59" # Week 5
+      filename: "2024 Game 5 - Humber Warhawks 6 Scunthorpe Alphas 55 [Extended Highlights] [V2E-W3ckp2g].mkv"
+      display_name: "Week 5: Warhawks vs Alphas"
+      context_folder: "2024_Game_5_-_Humber_Warhawks_6_Scunthorpe_Alphas_55_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "93e84315-73dc-4f7c-ba18-e0ea56a49388" # Week 6
+      filename: "2024 Game 6 - Scunthorpe Alphas 50 Chester Romans 7 [Extended Highlights] [pfUvQyGkFTI].mkv"
+      display_name: "Week 6: Alphas vs Romans"
+      context_folder: "2024_Game_6_-_Scunthorpe_Alphas_50_Chester_Romans_7_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "0e170fa5-f7df-462c-a253-533c43894061" # Week 7
+      filename: "2024 Game 7 – Scunthorpe Alphas 34 Humber Warhawks 6 [Extended Highlights] [FfemacJ_fXg].mkv"
+      display_name: "Week 7: Alphas vs Warhawks"
+      context_folder: "2024_Game_7_Scunthorpe_Alphas_34_Humber_Warhawks_6_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "08c6b486-d5ff-456d-8283-0d9fc62c1017" # Week 8
+      filename: "2024 Game 8 - Sheffield Giants 7 Scunthorpe Alphas 23 [Extended Highlights] [D8jvUqJDVAg].mkv"
+      display_name: "Week 8: Giants vs Alphas"
+      context_folder: "2024_Game_8_-_Sheffield_Giants_7_Scunthorpe_Alphas_23_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "0d0f87c6-122b-4245-a3bc-fa70bddf6804" # Wildcard
+      filename: "2024 Wildcard Round - Scunthorpe Alphas 62 Shropshire Revolution 7 [Extended Highlights] [egT_fwYKOnE].mkv"
+      display_name: "Wildcard: Alphas vs Revolution"
+      context_folder: "2024_Wildcard_Round_-_Scunthorpe_Alphas_62_Shropshire_Revolution_7_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "566cd30f-6f10-4453-bbdb-a8d2262cca38" # Northwestern
+      filename: "Northwestern_vs._Michigan_FOX-COLLEGE-FOOTBALL-HIGHLIGHTS.webm.720p.vp9.webm"
+      display_name: "Highlights: Northwestern vs Michigan"
+      context_folder: "Northwestern_vs_Michigan_FOX-COLLEGE-FOOTBALL-HIGHLIGHTS_webm_720p_vp9" # pragma: allowlist secret
+
+cold_cache:
+  display_name: "Recent Games 2025"
+  videos:
+    - id: "fff13889-1d58-439b-add1-166d3e11a486"
+      filename: "2025 Game 1 - Scunthorpe Alphas 20 Yorkshire Rams 21 [Extended Highlights] [edxCL2GKxVU].mkv"
+      display_name: "2025 Week 1: Alphas vs Rams"
+      context_folder: "2025_Game_1_-_Scunthorpe_Alphas_20_Yorkshire_Rams_21_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "ea768ef9-6afe-43b3-8621-2d31b0e8da2b"
+      filename: "2025 Game 2 - Chester Romans 0 Scunthorpe Alphas 31 [Highlights] [Q8U3cJR7KSw].mkv"
+      display_name: "2025 Week 2: Romans vs Alphas"
+      context_folder: "2025_Game_2_-_Chester_Romans_0_Scunthorpe_Alphas_31_Highlights"
+
+    - id: "8f76f59c-ae4b-4cee-8be8-dc571a624d4d"
+      filename: "2025 Game 4 - Scunthorpe Alphas 50 Merseyside Nighthawks 21 [Extended Highlights] [iBm59QuzRH0].mkv"
+      display_name: "2025 Week 4: Alphas vs Nighthawks"
+      context_folder: "2025_Game_4_-_Scunthorpe_Alphas_50_Merseyside_Nighthawks_21_Extended_Highlights" # pragma: allowlist secret
+
+    - id: "fe795a80-2e64-4db9-978b-4ebc7f970086"
+      filename: "2025 Game 8 - Scunthorpe Alphas 35 Sheffield Giants 0 [Highlights] [DvT3wh7eyX4].mkv"
+      display_name: "2025 Week 8: Alphas vs Giants"
+      context_folder: "2025_Game_8_-_Scunthorpe_Alphas_35_Sheffield_Giants_0_Highlights"
+
+    - id: "eeff0470-f242-4785-ba5d-9e024cff1554"
+      filename: "2025 Game 9 - Scunthorpe Alphas 34 Northants Knights 7 [Highlights] [4nD4Hj5LI3o].mkv"
+      display_name: "2025 Week 9: Alphas vs Knights"
+      context_folder: "2025_Game_9_-_Scunthorpe_Alphas_34_Northants_Knights_7_Highlights"
+
+warm_cache:
+  display_name: "Warm Cache (Small Context)"
+  videos:
+    - id: "d7c8b9a0-1234-5678-9abc-def012345678"
+      filename: "2025 Game 11 - Scunthorpe Alphas 6 Merseyside Nighthawks 21 [Highlights] [KI4t8XNYzqk].mkv"
+      display_name: "2025 Week 11: Alphas vs Nighthawks"
+      context_folder: "2025_Game_11_-_Scunthorpe_Alphas_6_Merseyside_Nighthawks_21_Highlights" # pragma: allowlist secret
+
+
+warmup_query: "Provide a comprehensive summary of the key plays, player performances, and game outcome based on the provided game context."
+auto_seed_on_startup: true

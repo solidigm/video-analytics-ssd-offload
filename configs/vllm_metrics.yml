@@ -1,0 +1,116 @@
+# Created by Metrum AI for Solidigm
+
+# vLLM Metrics Configuration
+# Exposed at /metrics endpoint on each vLLM instance
+
+metrics:
+  # Request metrics
+  - name: vllm_request_total
+    type: counter
+    help: Total number of requests processed
+    labels:
+      - model
+      - status
+
+  - name: vllm_request_duration_seconds
+    type: histogram
+    help: Request duration in seconds
+    labels:
+      - model
+    buckets: [0.1, 0.5, 1.0, 2.5, 5.0, 10.0, 30.0, 60.0]
+
+  # Token metrics
+  - name: vllm_tokens_total
+    type: counter
+    help: Total tokens processed
+    labels:
+      - model
+      - type  # prompt or completion
+
+  - name: vllm_time_to_first_token_seconds
+    type: histogram
+    help: Time to first token
+    labels:
+      - model
+    buckets: [0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0]
+
+  - name: vllm_inter_token_latency_seconds
+    type: histogram
+    help: Inter-token latency
+    labels:
+      - model
+    buckets: [0.01, 0.025, 0.05, 0.1, 0.25]
+
+  # KV Cache metrics
+  - name: vllm_kv_cache_usage_ratio
+    type: gauge
+    help: KV cache usage as ratio of total capacity
+    labels:
+      - model
+      - tier  # gpu, cpu, disk
+
+  - name: vllm_kv_cache_hits_total
+    type: counter
+    help: Total KV cache hits
+    labels:
+      - model
+      - tier
+
+  - name: vllm_kv_cache_misses_total
+    type: counter
+    help: Total KV cache misses
+    labels:
+      - model
+
+  - name: vllm_kv_cache_evictions_total
+    type: counter
+    help: Total KV cache evictions
+    labels:
+      - model
+      - tier
+
+  # LMCache specific metrics
+  - name: lmcache_offload_bytes_total
+    type: counter
+    help: Total bytes offloaded to SSD
+    labels:
+      - model
+
+  - name: lmcache_onboard_bytes_total
+    type: counter
+    help: Total bytes loaded from SSD
+    labels:
+      - model
+
+  - name: lmcache_ssd_throughput_bytes_per_second
+    type: gauge
+    help: Current SSD throughput
+    labels:
+      - direction  # read or write
+
+  # GPU metrics
+  - name: vllm_gpu_memory_used_bytes
+    type: gauge
+    help: GPU memory used in bytes
+    labels:
+      - gpu_id
+
+  - name: vllm_gpu_utilization_ratio
+    type: gauge
+    help: GPU utilization ratio
+    labels:
+      - gpu_id
+
+  # Batch metrics
+  - name: vllm_batch_size
+    type: histogram
+    help: Batch size distribution
+    labels:
+      - model
+    buckets: [1, 2, 4, 8, 16, 32, 64, 128]
+
+  - name: vllm_queue_length
+    type: gauge
+    help: Current request queue length
+    labels:
+      - model

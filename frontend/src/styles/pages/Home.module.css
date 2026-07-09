@@ -1,0 +1,182 @@
+/* Created by Metrum AI for Solidigm */
+
+/* Home Page - Three Column Professional Layout */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-tertiary);
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  padding: 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Layout - Three columns: Left Sidebar (25%) | Panels | Right Sidebar */
+.layout {
+  display: grid;
+  grid-template-columns: 25% 1fr 340px;
+  gap: 1rem;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: calc(100vh - 80px - 2.5rem);
+}
+
+/* Left Sidebar */
+.leftSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+/* ScenarioPanel: fixed at top */
+.leftSidebar > *:first-child {
+  flex-shrink: 0;
+}
+
+/* ContextSelector: expands to fill space */
+.leftSidebar > *:nth-child(2) {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* InfoCard: fixed at bottom */
+.leftSidebar > *:last-child {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* Panels Area (Middle) - Unified Arena */
+.panels {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panels > * {
+  flex: 1;
+  min-height: 0;
+}
+
+.responsePanels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Right Sidebar */
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Speedup Badge */
+.speedupBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  text-align: center;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.speedupValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-lmcache);
+  letter-spacing: -0.02em;
+}
+
+.speedupLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive: Adjust layout on medium screens - keep right sidebar visible */
+@media (max-width: 1400px) {
+  .layout {
+    grid-template-columns: 25% 1fr 300px;
+  }
+}
+
+/* Responsive: Further compress on smaller screens */
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 22% 1fr 280px;
+    gap: 0.75rem;
+  }
+}
+
+/* Responsive: Stack on smaller screens, hide right sidebar */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .leftSidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .leftSidebar > * {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .panels {
+    grid-template-rows: auto 1fr;
+    min-height: 500px;
+  }
+
+  .responsePanels {
+    grid-template-columns: 1fr;
+  }
+
+  .rightSidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .layout {
+    gap: 0.875rem;
+  }
+
+  .leftSidebar {
+    flex-direction: column;
+  }
+
+  .leftSidebar > * {
+    min-width: auto;
+  }
+}

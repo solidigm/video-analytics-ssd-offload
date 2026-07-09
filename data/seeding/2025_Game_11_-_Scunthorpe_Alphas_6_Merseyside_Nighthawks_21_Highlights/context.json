@@ -1,0 +1,57 @@
+{
+  "video_file": "2025 Game 11 - Scunthorpe Alphas 6 Merseyside Nighthawks 21 [Highlights] [KI4t8XNYzqk].mkv",
+  "duration_sec": 88.288,
+  "processed_at": "2026-02-09T10:18:28.429260",
+  "game_info": {
+    "home_team": "Scunthorpe Alphas",
+    "away_team": "Merseyside Nighthawks",
+    "final_score_home": 6,
+    "final_score_away": 21,
+    "game_number": 11,
+    "season": "2025",
+    "video_type": "highlights"
+  },
+  "token_count": 1200,
+  "segment_count": 3,
+  "narrative": [
+    {
+      "time_range": "0.0s - 40.1s",
+      "narrative": "The video segment opens with live game action from the Division One Northern Championship game between the Scunthorpe Alphas (in red uniforms) and the Merseyside Nighthawks (in white uniforms). The scoreboard graphic at the bottom of the screen indicates it is the 1st quarter with the score tied at 0-0. The Alphas are in possession of the ball, and the play is about to begin. Pre-snap, the Alphas are in a shotgun formation with 11 personnel: one quarterback, one running back, three wide receivers, and one tight end. The offensive line consists of five players, with the center positioned behind the quarterback. The tight end is aligned on the left side of the formation, while the wide receivers are spread out on both sides of the field. The running back is positioned directly behind the quarterback, ready to receive the handoff. The defensive formation for the Nighthawks is a 4-3 under defense. The defensive line features four linemen, with the nose tackle positioned in the middle and the defensive ends on the outside. The linebackers are positioned in a standard under formation, with the middle linebacker flanked by the weakside and strongside linebackers. The secondary consists of four defensive backs, with two cornerbacks and two safeties. The field position is at the 30-yard line, with the Alphas on offense. The game clock shows 15:00 remaining in the 1st quarter. As the play begins, the quarterback (wearing jersey number 12) takes the snap from the center and hands the ball off to the running back (number 22). The running back takes the ball to the right side of the field, looking for a running lane. The offensive line engages with the defensive line, with the left tackle sealing the edge and the right guard pulling to block the defensive end. The running back attempts to cut back to the left but is met by the strongside linebacker, who makes the tackle around the 27-yard line. The play results in a 3-yard gain, moving the ball to the 33-yard line. The new down is 2nd and 7. The video then cuts to the 2nd quarter, with the score still tied at 0-0. The Alphas are again on offense, and the play begins. The formation is similar to the previous play, with the Alphas in a shotgun formation with 11 personnel. The quarterback hands off to the running back, who runs to the right. The defensive line for the Nighthawks is in a 4-3 under formation, with the defensive ends and linebackers attempting to penetrate the line. The running back is tackled by the strongside linebacker around the 30-yard line, resulting in a 2-yard gain. The new down is 3rd and 5. The next frame shows the 2nd quarter with the score now 0-7 in favor of the Nighthawks. The Nighthawks are on offense, and the play begins. The formation is a shotgun with 11 personnel, with the quarterback (number 14) taking the snap. The running back (number 24) takes the handoff and runs to the right. The Alphas' defensive line is in a 4-3 under formation, with the defensive ends and linebackers attempting to stop the run. The running back is tackled by the Alphas' strongside linebacker around the 10-yard line, but the play results in a touchdown. The scoreboard updates to 0-7, indicating the Nighthawks have scored a touchdown. The new down is 1st and 10. The audio commentary mentions that the Nighthawks broke the deadlock with a rushing touchdown, which aligns with the visual of the score changing to 0-7. The commentary also notes that Natty Peck denied the Nighthawks a scoring opportunity earlier in the second quarter, but the Nighthawks eventually scored. The audio also mentions Gaz Hughes' interception just before the half, which kept the score at 7-0. The key events in this segment include the Nighthawks scoring a touchdown, which is the first score of the game. The players mentioned in the commentary include Natty Peck, Gaz Hughes, and the players in the game (Smith, Johnson, etc.). The confidence level is high as the visual and audio information aligns with the game context.",
+      "quarter": 2,
+      "game_clock": "15:00",
+      "possession": "Merseyside Nighthawks",
+      "key_events": [
+        "touchdown",
+        "penalty"
+      ],
+      "players_mentioned": [
+        "Natty Peck",
+        "Gaz Hughes",
+        "#12 Smith",
+        "#22 Johnson"
+      ]
+    }
+  ],
+  "key_events": [
+    {
+      "time_range": "0.0s - 40.1s",
+      "event_type": "touchdown",
+      "description": "The video segment opens with live game action from the Division One Northern Championship game between the Scunthorpe Alphas (in red uniforms) and the Merseyside Nighthawks (in white uniforms). The sc",
+      "quarter": 2,
+      "team": "Merseyside Nighthawks"
+    },
+    {
+      "time_range": "0.0s - 40.1s",
+      "event_type": "penalty",
+      "description": "The video segment opens with live game action from the Division One Northern Championship game between the Scunthorpe Alphas (in red uniforms) and the Merseyside Nighthawks (in white uniforms). The sc",
+      "quarter": 2,
+      "team": "Merseyside Nighthawks"
+    }
+  ],
+  "all_players_mentioned": [
+    "#12 Smith",
+    "#22 Johnson",
+    "Gaz Hughes",
+    "Natty Peck"
+  ]
+}

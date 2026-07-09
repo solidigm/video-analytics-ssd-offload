@@ -1,0 +1,120 @@
+/* Created by Metrum AI for Solidigm */
+
+/* VideoTimeline Component Styles */
+
+.container {
+  background: #161B22;
+  border-top: 1px solid #30363D;
+  padding: 1rem 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.headerIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-lmcache);
+}
+
+.headerTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #D1D5DB;
+}
+
+.separator {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #9CA3AF;
+  font-family: 'Geist Mono', monospace;
+}
+
+.timeline {
+  position: relative;
+  height: 8px;
+  background: #21262D;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(to right, var(--color-lmcache), #00A3E0);
+  border-radius: 9999px;
+  transition: all var(--transition-fast);
+}
+
+.handle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border-radius: 9999px;
+  top: -4px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-fast);
+}
+
+.clips {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.clip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid #30363D;
+  background: #21262D;
+  color: #9CA3AF;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.clip:hover {
+  border-color: #6B7280;
+  color: #D1D5DB;
+}
+
+.clipSelected {
+  background: rgba(91, 79, 196, 0.2);
+  border-color: var(--color-lmcache);
+  color: var(--color-lmcache);
+}
+
+.clipIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.clipTime {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.clipArrow {
+  width: 12px;
+  height: 12px;
+}
+
+.clipLabel {
+  font-size: 12px;
+  color: #6B7280;
+  margin-left: 0.25rem;
+}

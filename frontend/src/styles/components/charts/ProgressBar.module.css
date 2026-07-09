@@ -1,0 +1,76 @@
+/* Created by Metrum AI for Solidigm */
+
+/* ProgressBar Component */
+
+.container {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.value {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.track {
+  width: 100%;
+  background: var(--color-bg-tertiary);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.trackSm {
+  height: 4px;
+}
+
+.trackMd {
+  height: 6px;
+}
+
+.trackLg {
+  height: 8px;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.4s var(--motion-smooth);
+}
+
+.fillDefault {
+  background: var(--solidigm-accent);
+}
+
+.fillSuccess {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+}
+
+.fillWarning {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.fillDanger {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+.fillLmcache {
+  background: linear-gradient(90deg, var(--color-lmcache-dark) 0%, var(--color-lmcache) 100%);
+}
+
+.fillBaseline {
+  background: linear-gradient(90deg, var(--color-baseline-dark) 0%, var(--color-baseline) 100%);
+}

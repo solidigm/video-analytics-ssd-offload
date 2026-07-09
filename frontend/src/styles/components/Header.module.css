@@ -1,0 +1,582 @@
+/* Created by Metrum AI for Solidigm */
+
+/* Header Component Styles */
+
+.header {
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandSubtitle {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brandLabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.centerTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 60%;
+  text-align: center;
+}
+
+.mainTitle {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Responsive title */
+@media (max-width: 1200px) {
+  .mainTitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .mainTitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .centerTitle {
+    position: relative;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    order: -1;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .mainTitle {
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 12px;
+  }
+}
+
+.uploadSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.uploadButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.uploadButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.uploadIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.pathButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid;
+}
+
+.pathButtonInactive {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pathButtonInactive:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pathButtonActive {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--color-text-primary);
+}
+
+.pathModal {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  padding: 1rem;
+  width: 384px;
+  border: 1px solid var(--color-border);
+}
+
+.pathModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.pathModalTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pathModalClose {
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.pathModalClose:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.pathModalCloseIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+}
+
+.pathInput {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.pathInput:focus {
+  outline: none;
+  border-color: var(--solidigm-accent);
+  box-shadow: 0 0 0 2px rgba(119, 60, 238, 0.2);
+}
+
+.pathModalActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.pathSubmitButton {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.pathCancelButton {
+  padding: 0.5rem 1rem;
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.pathCancelButton:hover {
+  background: var(--color-border);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.multiUserBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.multiUserBadge:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.multiUserLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.toggleSwitch {
+  width: 36px;
+  height: 20px;
+  background: #1a1a2e;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggleSwitchActive {
+  background: #10b981;
+}
+
+.toggleKnob {
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.toggleKnobActive {
+  transform: translateX(16px);
+}
+
+.indicators {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .indicators {
+    display: flex;
+  }
+}
+
+.indicatorBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.indicatorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.indicatorDotBaseline {
+  background: var(--color-baseline);
+}
+
+.indicatorDotLmcache {
+  background: var(--color-lmcache);
+}
+
+.indicatorLabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.analyticsButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--solidigm-blue-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.analyticsButton:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.analyticsIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.resetButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.resetIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Flush GPU Caches Button */
+.flushButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.flushButton:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.flushButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.flushButtonActive {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.flushIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.flushIconSpin {
+  animation: flushPulse 1s ease-in-out infinite;
+}
+
+@keyframes flushPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+/* Info Button and Dropdown */
+.infoContainer {
+  position: relative;
+}
+
+.infoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.infoButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.infoIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.infoDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  min-width: 280px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.infoDropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoDropdownIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--solidigm-accent);
+}
+
+.infoDropdownContent {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.infoValue {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.infoRowHighlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.375rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.infoLabelHighlight {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--solidigm-accent);
+}
+
+.infoValueHighlight {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--solidigm-accent);
+}

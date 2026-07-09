@@ -1,0 +1,276 @@
+/* Created by Metrum AI for Solidigm */
+
+/* OffloadComparisonCard - Premium Comparison UI */
+
+.container {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 6px 16px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerLabel {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.headerBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, var(--color-lmcache-light) 0%, rgba(91, 79, 196, 0.08) 100%);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-lmcache);
+}
+
+.headerBadgeIcon {
+  width: 12px;
+  height: 12px;
+}
+
+/* Comparison Grid */
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+/* Column Styles */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.columnOptimized {
+  /* Subtle highlight for optimized column */
+}
+
+.columnHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.375rem;
+}
+
+.columnBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-baseline);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.columnBadgeOptimized {
+  color: var(--color-lmcache);
+}
+
+.columnBadgeIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.columnSubtitle {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* Metrics Stack */
+.metricsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--color-bg-tertiary);
+  border-radius: 10px;
+  transition: all var(--motion-duration-fast) var(--motion-smooth);
+}
+
+.metricRowOptimized {
+  background: linear-gradient(135deg, var(--color-lmcache-light) 0%, rgba(91, 79, 196, 0.06) 100%);
+  border: 1px solid rgba(91, 79, 196, 0.15);
+}
+
+.metricIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.metricIcon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.metricIconOptimized {
+  background: var(--white);
+  color: var(--color-lmcache);
+  box-shadow: 0 0 8px rgba(91, 79, 196, 0.15);
+}
+
+.metricInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.metricLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.metricValueBaseline {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-baseline);
+  letter-spacing: -0.01em;
+}
+
+.metricValueOptimized {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-lmcache);
+  letter-spacing: -0.01em;
+}
+
+/* Delta Column */
+.deltaColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.75rem; /* Align with metric rows */
+}
+
+.deltaHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2f006b 0%, #2f006b 100%);
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.deltaHeaderIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.deltaCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.625rem 0.5rem;
+  border-radius: 8px;
+  transition: all var(--motion-duration-fast) var(--motion-smooth);
+}
+
+.deltaCellGood {
+  background: linear-gradient(135deg, rgba(67, 56, 202, 0.12) 0%, rgba(99, 102, 241, 0.08) 100%);
+}
+
+.deltaCellGreat {
+  background: linear-gradient(135deg, rgba(67, 56, 202, 0.12) 0%, rgba(99, 102, 241, 0.08) 100%);
+}
+
+.deltaValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2f006b;
+  letter-spacing: -0.01em;
+}
+
+.deltaCellGreat .deltaValue {
+  color: #2f006b;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .deltaColumn {
+    flex-direction: row;
+    padding-top: 0;
+    justify-content: center;
+    order: -1;
+  }
+
+  .deltaHeader {
+    display: none;
+  }
+
+  .deltaCell {
+    width: auto;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.875rem 1rem;
+  }
+
+  .metricRow {
+    padding: 0.5rem 0.625rem;
+  }
+
+  .metricValueBaseline,
+  .metricValueOptimized {
+    font-size: 14px;
+  }
+}

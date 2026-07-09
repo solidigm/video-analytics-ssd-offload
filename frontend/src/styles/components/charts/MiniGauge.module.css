@@ -1,0 +1,22 @@
+/* Created by Metrum AI for Solidigm */
+
+/* MiniGauge Component */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.chart {
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

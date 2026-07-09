@@ -1,0 +1,754 @@
+/* Created by Metrum AI for Solidigm */
+
+/* ComparisonArena - Fully Responsive (cqi-based) */
+
+.arena {
+  container-type: inline-size;
+  container-name: comparison-arena;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--white);
+  border-radius: clamp(0.75rem, 3cqi, 1.25rem);
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* =============================================
+   LATENCY + POWER IMPACT BAR
+   ============================================= */
+
+.impactBar {
+  padding: clamp(0.5rem, 2cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.1rem);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.impactHeader {
+  margin-bottom: clamp(0.025rem, 0.1cqi, 0.05rem);
+}
+
+.impactTitle {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.625rem, 2.2cqi, 1rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.impactSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5rem, 1.7cqi, 0.75rem);
+  color: #94a3b8;
+  margin: 0;
+  margin-top: clamp(0.0625rem, 0.25cqi, 0.125rem);
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.3fr) minmax(0, 2fr);
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+}
+
+/* Baseline Column (stacked cards) */
+.baselineColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+  min-width: 0;
+}
+
+/* Baseline Card (white) */
+.baselineCard {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: clamp(0.5rem, 2cqi, 0.75rem);
+  padding: clamp(0.375rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  min-width: 0;
+}
+
+.baselineCard:hover {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Offload Column (stacked cards) */
+.offloadColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+  min-width: 0;
+}
+
+/* Offload Card (white with purple accent) */
+.offloadCard {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid rgba(47, 0, 107, 0.15);
+  border-radius: clamp(0.5rem, 2cqi, 0.75rem);
+  padding: clamp(0.375rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow:
+    0 4px 12px rgba(33, 36, 226, 0.15),
+    0 8px 24px rgba(47, 0, 107, 0.2);
+  transition: box-shadow 0.2s ease;
+  min-width: 0;
+}
+
+.offloadCard:hover {
+  box-shadow:
+    0 6px 16px rgba(53, 56, 226, 0.2),
+    0 12px 32px rgba(47, 0, 107, 0.25);
+}
+
+/* Metric Row */
+.metricRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.metricLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.1875rem, 0.8cqi, 0.5rem);
+  min-width: 0;
+}
+
+.metricIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1rem, 3.2cqi, 1.5rem);
+  height: clamp(1rem, 3.2cqi, 1.5rem);
+  background: rgba(47, 0, 107, 0.1);
+  border-radius: clamp(0.25rem, 1cqi, 0.375rem);
+  flex-shrink: 0;
+}
+
+.metricIcon {
+  width: clamp(0.5rem, 1.6cqi, 0.75rem);
+  height: clamp(0.5rem, 1.6cqi, 0.75rem);
+  color: #2f006b;
+}
+
+.metricInfo {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.0625rem, 0.2cqi, 0.125rem);
+  min-width: 0;
+}
+
+.metricLabel {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.5rem, 1.7cqi, 0.75rem);
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+.metricSublabel {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.375rem, 1.1cqi, 0.5rem);
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Baseline Card (Column 1) label overrides */
+.baselineCard .metricLabel {
+  font-size: clamp(0.5rem, 1.7cqi, 0.75rem);
+}
+
+.baselineCard .metricSublabel {
+  font-size: clamp(0.375rem, 1.1cqi, 0.5rem);
+}
+
+/* Offload Card (Column 2) label overrides */
+.offloadCard .metricLabel {
+  font-size: clamp(0.5rem, 1.7cqi, 0.75rem);
+}
+
+.offloadCard .metricSublabel {
+  font-size: clamp(0.3125rem, 1cqi, 0.4375rem);
+}
+
+.metricSublabelPurple {
+  color: #8b8bb8;
+}
+
+.metricRight {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.0625rem, 0.4cqi, 0.25rem);
+  flex-shrink: 0;
+}
+
+.metricValueDark {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(1.25rem, 4.8cqi, 2.25rem);
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.metricUnitDark {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.5rem, 1.8cqi, 0.875rem);
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.metricValuePurple {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(1.25rem, 4.8cqi, 2.25rem);
+  font-weight: 700;
+  color: #2f006b;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.metricUnitPurple {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.5rem, 1.8cqi, 0.875rem);
+  font-weight: 500;
+  color: rgba(47, 0, 107, 0.6);
+}
+
+/* Comparison Column */
+.comparisonColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+  min-width: 0;
+}
+
+.comparisonCard {
+  flex: 1;
+  min-height: clamp(2.5rem, 9cqi, 4.375rem);
+  background: linear-gradient(135deg, #8d59cf 0%, #4f00b5 50%, #2f006b 100%);
+  border-radius: clamp(0.5rem, 2cqi, 0.75rem);
+  padding: clamp(0.375rem, 1.5cqi, 0.875rem) clamp(0.5rem, 1.8cqi, 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.25rem, 1.2cqi, 0.75rem);
+  box-shadow:
+    0 4px 12px rgba(79, 0, 181, 0.25),
+    0 8px 24px rgba(141, 89, 207, 0.2);
+  transition: box-shadow 0.2s ease;
+  min-width: 0;
+}
+
+.comparisonCard:hover {
+  box-shadow:
+    0 6px 16px rgba(47, 0, 107, 0.2),
+    0 12px 32px rgba(47, 0, 107, 0.25);
+}
+
+.comparisonLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.1875rem, 0.8cqi, 0.5rem);
+  flex: 1;
+  min-width: 0;
+}
+
+.comparisonIcon {
+  width: clamp(0.625rem, 2cqi, 1rem);
+  height: clamp(0.625rem, 2cqi, 1rem);
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+  margin-top: clamp(1px, 0.15cqi, 2px);
+}
+
+.comparisonTextGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.comparisonText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.375rem, 1.4cqi, 0.625rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.45;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.comparisonValue {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(1rem, 3.8cqi, 1.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: clamp(2rem, 8cqi, 3.75rem);
+  text-align: right;
+}
+
+/* =============================================
+   CHAT PANELS CONTAINER
+   ============================================= */
+
+.panelsContainer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Baseline Panel (Left) */
+.panelBaseline {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+  padding: clamp(0.5rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.panelIndicator {
+  width: clamp(0.375rem, 1.6cqi, 0.625rem);
+  height: clamp(0.375rem, 1.6cqi, 0.625rem);
+  border-radius: 50%;
+  background: #94a3b8;
+  flex-shrink: 0;
+}
+
+.panelTitle {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.5625rem, 2cqi, 0.9375rem);
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  flex: 1;
+  min-width: 0;
+}
+
+.panelTTFT {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.0625rem, 0.4cqi, 0.25rem);
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  font-weight: 500;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.panelTTFTIcon {
+  width: clamp(0.5rem, 2.2cqi, 0.875rem);
+  height: clamp(0.5rem, 2.2cqi, 0.875rem);
+  opacity: 0.6;
+  display: none;
+}
+
+.messagesArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: clamp(0.5rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  padding-bottom: clamp(3rem, 20cqi, 7.5rem);
+  position: relative;
+  z-index: 1;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: clamp(5rem, 30cqi, 12.5rem);
+}
+
+.emptyText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  color: #9ca3af;
+}
+
+/* SSD Panel (Right) */
+.panelSSD {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%);
+  border-left: 1px solid rgba(47, 0, 107, 0.1);
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.panelHeaderSSD {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1cqi, 0.5rem);
+  padding: clamp(0.5rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(47, 0, 107, 0.08);
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.panelIndicatorSSD {
+  width: clamp(0.375rem, 1.6cqi, 0.625rem);
+  height: clamp(0.375rem, 1.6cqi, 0.625rem);
+  border-radius: 50%;
+  background: #2f006b;
+  flex-shrink: 0;
+}
+
+.panelTitleSSD {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.5625rem, 2cqi, 0.9375rem);
+  font-weight: 600;
+  color: #2f006b;
+  letter-spacing: -0.01em;
+  flex: 1;
+  min-width: 0;
+}
+
+.panelTTFTSSD {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.0625rem, 0.4cqi, 0.25rem);
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  font-weight: 500;
+  color: #2f006b;
+  flex-shrink: 0;
+}
+
+.messagesAreaSSD {
+  flex: 1;
+  overflow-y: auto;
+  padding: clamp(0.5rem, 1.8cqi, 1rem) clamp(0.5rem, 2.2cqi, 1.25rem);
+  padding-bottom: clamp(3rem, 20cqi, 7.5rem);
+  position: relative;
+  z-index: 1;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Empty State - SSD Panel */
+.emptyStateSSD {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: clamp(5rem, 30cqi, 12.5rem);
+}
+
+.emptyTextSSD {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  color: var(--color-lmcache);
+  opacity: 0.7;
+}
+
+/* Center Divider */
+.centerDivider {
+  width: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dividerLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+.dividerGlow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(2px, 0.5cqi, 3px);
+  height: clamp(2rem, 10cqi, 3.75rem);
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(91, 79, 196, 0.4),
+    transparent
+  );
+  border-radius: 2px;
+  animation: dividerPulse 3s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+  0%, 100% { opacity: 0.5; height: clamp(2rem, 10cqi, 3.75rem); }
+  50% { opacity: 1; height: clamp(3rem, 13cqi, 5rem); }
+}
+
+/* =============================================
+   MESSAGE STYLES
+   ============================================= */
+
+.messageRow {
+  margin-bottom: clamp(0.5rem, 1.8cqi, 1rem);
+  position: relative;
+  z-index: 5;
+}
+
+.messageRow:last-child {
+  margin-bottom: 0;
+}
+
+/* User Message - Baseline */
+.userMessage {
+  margin-bottom: clamp(0.25rem, 0.8cqi, 0.5rem);
+}
+
+.userBadge {
+  display: none;
+}
+
+.userText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* User Message - SSD */
+.userMessageSSD {
+  margin-bottom: clamp(0.25rem, 0.8cqi, 0.5rem);
+}
+
+.userBadgeSSD {
+  display: none;
+}
+
+/* Assistant Message - Baseline Response */
+.assistantMessage {
+  padding: clamp(0.5rem, 2cqi, 1.25rem) clamp(0.625rem, 2.5cqi, 1.5rem);
+  background: #ffffff;
+  border-radius: clamp(0.375rem, 1.3cqi, 0.5rem);
+  border-left: clamp(2px, 0.6cqi, 4px) solid #cbd5e1;
+}
+
+.responseMeta {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.1875rem, 0.8cqi, 0.5rem);
+  margin-bottom: clamp(0.1875rem, 0.8cqi, 0.5rem);
+  margin-top: clamp(0.0625rem, 0.4cqi, 0.25rem);
+}
+
+.metaIcon {
+  display: none;
+}
+
+.metaText {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.4375rem, 2cqi, 0.8125rem);
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Assistant Message - SSD */
+.assistantMessageSSD {
+  padding: clamp(0.5rem, 2cqi, 1.25rem) clamp(0.625rem, 2.5cqi, 1.5rem);
+  background: #ffffff;
+  border-radius: clamp(0.375rem, 1.3cqi, 0.5rem);
+  border-left: clamp(2px, 0.6cqi, 4px) solid #2f006b;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.responseMetaSSD {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1cqi, 0.625rem);
+  margin-bottom: clamp(0.1875rem, 0.8cqi, 0.5rem);
+  margin-top: clamp(0.0625rem, 0.4cqi, 0.25rem);
+}
+
+.metaDot {
+  font-size: clamp(0.75rem, 3.2cqi, 1.25rem);
+  color: #2f006b;
+  line-height: 1;
+}
+
+.metaTextSSD {
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(0.4375rem, 2cqi, 0.8125rem);
+  color: #2f006b;
+  font-weight: 600;
+}
+
+.cacheBadge {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(0.375rem, 1.6cqi, 0.625rem);
+  font-weight: 700;
+  color: white;
+  background: #2f006b;
+  padding: clamp(0.125rem, 0.5cqi, 0.3rem) clamp(0.25rem, 1.2cqi, 0.75rem);
+  border-radius: clamp(2px, 0.6cqi, 4px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.assistantText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.5rem, 2.2cqi, 0.875rem);
+  line-height: 1.75;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+.assistantMessageSSD .assistantText {
+  color: #374151;
+}
+
+/* Loading Indicators */
+.loadingIndicator {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.1875rem, 0.8cqi, 0.375rem);
+  padding: clamp(0.375rem, 1.2cqi, 0.75rem) clamp(0.5rem, 1.6cqi, 1rem);
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: clamp(0.5rem, 2cqi, 0.75rem);
+  width: fit-content;
+}
+
+.loadingDot {
+  width: clamp(0.25rem, 1cqi, 0.375rem);
+  height: clamp(0.25rem, 1cqi, 0.375rem);
+  background: #64748b;
+  border-radius: 50%;
+  animation: loadingPulse 1.4s ease-in-out infinite;
+}
+
+.loadingIndicatorSSD {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.1875rem, 0.8cqi, 0.375rem);
+  padding: clamp(0.375rem, 1.2cqi, 0.75rem) clamp(0.5rem, 1.6cqi, 1rem);
+  background: rgba(91, 79, 196, 0.08);
+  border-radius: clamp(0.5rem, 2cqi, 0.75rem);
+  width: fit-content;
+}
+
+.loadingDotSSD {
+  width: clamp(0.25rem, 1cqi, 0.375rem);
+  height: clamp(0.25rem, 1cqi, 0.375rem);
+  background: var(--color-lmcache);
+  border-radius: 50%;
+  animation: loadingPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =============================================
+   IDLE PULSE INDICATOR
+   ============================================= */
+
+.idlePulse {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(3px, 0.8cqi, 5px);
+}
+
+.idleLine {
+  display: inline-block;
+  width: clamp(20px, 5cqi, 32px);
+  height: clamp(2px, 0.5cqi, 3px);
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.idleDot {
+  display: inline-block;
+  width: clamp(6px, 1.5cqi, 9px);
+  height: clamp(6px, 1.5cqi, 9px);
+  background: #cbd5e1;
+  border-radius: 50%;
+  animation: idleBreathe 2s ease-in-out infinite;
+}
+
+/* Purple variant for offload cards */
+.idlePulsePurple .idleLine {
+  background: rgba(124, 58, 237, 0.4);
+}
+
+.idlePulsePurple .idleDot {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+/* White variant for comparison cards */
+.idlePulseWhite .idleLine {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.idlePulseWhite .idleDot {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes idleBreathe {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Layout is always 3 columns x 2 rows -- content scales, grid stays fixed */

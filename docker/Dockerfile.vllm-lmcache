@@ -1,0 +1,51 @@
+# Created by Metrum AI for Solidigm
+
+# =============================================================================
+# vLLM + LMCache - Built from source for Blackwell GPU (sm_120)
+# =============================================================================
+FROM pytorch/pytorch:2.8.0-cuda12.9-cudnn9-devel
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git build-essential ninja-build curl libgl1 libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Build environment for Blackwell
+ENV TORCH_CUDA_ARCH_LIST="12.0"
+ENV MAX_JOBS=8
+ENV CUDA_HOME=/usr/local/cuda
+
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
+# Clone LMCache
+WORKDIR /build
+RUN git clone --depth 1 https://github.com/LMCache/LMCache.git
+
+WORKDIR /build/LMCache
+
+# Install build dependencies FIRST
+RUN pip install --no-cache-dir ninja "packaging>=24.2" "setuptools>=77.0.3,<81.0.0" "setuptools_scm>=8" pybind11
+
+# Build LMCache with CUDA extensions (sm_120 for Blackwell)
+RUN pip install --no-cache-dir --no-build-isolation -e . -v 2>&1 | tee /tmp/build.log
+
+# Verify .so files exist (no GPU needed for this check)
+RUN ls -la /build/LMCache/lmcache/*.so && \
+    echo "✓ CUDA ops compiled with sm_120 for Blackwell GPU"
+
+# Install vLLM
+RUN pip install --no-cache-dir vllm
+
+RUN mkdir -p /app/configs /mnt/nvme/kv_cache
+#RUN mkdir -p /app/configs /mnt/nvme2/kv_cache
+
+WORKDIR /app
+
+ENV LMCACHE_CONFIG_FILE=/app/configs/lmcache_config.yaml
+ENV PYTHONHASHSEED=0
+ENV LD_LIBRARY_PATH=/opt/conda/lib/python3.11/site-packages/torch/lib:$LD_LIBRARY_PATH
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=900s --retries=30 \
+    CMD curl -f http://localhost:8000/v1/models || exit 1
+
+ENTRYPOINT ["vllm", "serve"]
+CMD ["--help"]

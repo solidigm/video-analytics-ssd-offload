@@ -1,0 +1,4 @@
+# Created by Metrum AI for Solidigm
+
+ignoredBuiltDependencies:
+  - esbuild

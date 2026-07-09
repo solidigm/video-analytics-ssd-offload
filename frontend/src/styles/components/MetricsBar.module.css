@@ -1,0 +1,89 @@
+/* Created by Metrum AI for Solidigm */
+
+/* MetricsBar Component Styles */
+
+.container {
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  overflow-x: auto;
+}
+
+.metricCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid;
+  min-width: 120px;
+}
+
+.metricCardRed {
+  background: rgba(100, 116, 139, 0.1);
+  border-color: rgba(100, 116, 139, 0.2);
+}
+
+.metricCardGreen {
+  background: rgba(91, 79, 196, 0.1);
+  border-color: rgba(91, 79, 196, 0.2);
+}
+
+.metricCardBlue {
+  background: rgba(0, 102, 204, 0.1);
+  border-color: rgba(0, 102, 204, 0.2);
+}
+
+.metricCardGold {
+  background: rgba(244, 211, 94, 0.1);
+  border-color: rgba(244, 211, 94, 0.3);
+}
+
+.metricCardHighlight {
+  box-shadow: 0 0 0 2px rgba(91, 79, 196, 0.5), var(--shadow-lg);
+}
+
+.metricLabel {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+}
+
+.metricValue {
+  font-size: 1.25rem;
+  font-weight: 900;
+  font-family: 'Geist Mono', monospace;
+}
+
+.metricValueRed {
+  color: var(--color-baseline);
+}
+
+.metricValueGreen {
+  color: var(--color-lmcache);
+}
+
+.metricValueBlue {
+  color: var(--solidigm-blue-secondary);
+}
+
+.metricValueGold {
+  color: #D4920A;
+}
+
+.metricUnit {
+  font-size: 9px;
+  color: var(--color-text-muted);
+}

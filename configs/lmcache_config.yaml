@@ -1,0 +1,18 @@
+# Created by Metrum AI for Solidigm
+
+# LMCache Disk Offload Configuration
+# Settings: 120GB CPU RAM + 2.5TB NVMe SSD
+# Matching benchmark config with Blackwell compatibility
+chunk_size: 256
+pin_timeout_sec: 600
+local_cpu: true
+max_local_cpu_size: 120.0
+local_disk: "file:///mnt/ssd/kv_cache/"
+#local_disk: "file:///mnt/nvme2/kv_cache/"
+
+max_local_disk_size: 2500.0
+use_layerwise: false
+extra_config:
+  use_odirect: true
+  use_experimental: true
+  use_aio: true

@@ -1,0 +1,360 @@
+# Cursor rules
+.cursor/
+.claude/
+.env
+/deltanet/
+
+# data
+*.sh
+!setup_quick.sh
+backend/
+start_demo.sh
+stop_demo.sh
+data/*
+!data/seeding/
+!data/context/
+testapis.md
+# Byte-compiled / optimized / DLL files
+.release/
+__pycache__/
+*.py[cod]
+*$py.class
+# C extensions
+*.so
+
+# Node.js modules
+node_modules/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff
+*.log
+!user-logins.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy/
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+scripts/
+# pyenv
+# For a library or package, you might want to ignore these files since the code is
+# intended to run in multiple environments; otherwise, check them in:
+# .python-versions
+# pipenv
+# Pipfile.lock (can be included depending on the project)
+# Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject/
+.spyproject/
+
+# Rope project settings
+.ropeproject/
+
+# mkdocs documentation
+/site/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Poetry files
+poetry.*
+
+# Temp log files
+*.log
+_test*
+
+# ESLint & audit reports
+eslint-report.txt
+CODE_QUALITY_REPORT_*.html
+CODE_SECURITY_REPORT_*.html
+
+# Test reports
+COMPARE_VALIDATION_TEST_REPORT_*.xlsx
+generate-test-report.cjs
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Lockfiles
+!frontend/package-lock.json
+!frontend/package-lock.yaml
+!frontend/pnpm-lock.yaml
+yarn.lock
+
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Build directories
+dist/
+dist-ssr/
+build/
+*.local
+
+# Coverage directories
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.bak
+*.sw?
+*.swp
+*.swx
+*~
+.nib
+*.db
+
+# TypeScript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm/
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn integrity file
+.yarn-integrity
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# System files
+.Thumbs.db
+# Docker volumes
+.docker-volumes/
+volumes/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firebase-functions-config.json
+
+# Supabase
+.supabase/
+supabase-key.json
+
+# Appwrite
+appwrite-config.json
+appwrite-key.json
+
+# Azure
+azure*.json
+*.azure/
+*.publishsettings
+
+# AWS
+.aws/
+*.pem
+*.pk
+aws-config.json
+aws-exports.js
+
+# Netlify
+netlify.toml
+.netlify/
+
+# Vercel
+.vercel/
+vercel.json
+
+# General cloud services
+*.env
+*.env.*
+*.env.production
+*.env.staging
+*.env.test
+*.env.development
+!.env.example
+secrets.*
+
+# Generated keys or certificates
+*.key
+*.pem
+*.crt
+*.pfx
+*.jks
+
+# Storybook
+.storybook-out/
+
+# Temporary output files
+volumes/
+
+# Cursor Rules
+# .cursorrules
+# .cursor/*
+
+certbot/
+
+# Additional project-specific ignores
+*.csv
+lib/
+storage/
+tmp/
+*.tar.gz
+*.zip
+test_videos/
+models/
+*.ipynb
+huggingface/
+*.swo
+
+
+demo_recording/*
+
+frontend/playwright-report/*
+
+frontend/e2e/*
+frontend/test-results/*
+frontend/screenshots/
+benchmark_results/
+benchmark_results_multi_user/
+
+benchmarks/
+
+docker-compose.deepseek-prefix-caching.yml
+benchmark_results_deepseek_baseline_20260324_125614
+benchmark_results_deepseek_baseline_FINAL_20260324_154653
+benchmark_results_deepseek_lmcache_20260324_140954
+benchmark_results_deepseek_lmcache_FINAL_20260324_161338
+benchmark_results_deepseek_lmcache_FINAL_20260324_170116
+benchmark_results_deepseek_lmcache_RERUN_20260324_184325
+benchmark_results_deepseek_lmcache_TLC_RUN1_20260324_211459
+benchmark_results_deepseek_lmcache_TLC_RUN2_20260324_233812
+benchmark_results_deepseek_lmcache_TLC_warmup_20260324_204256
+benchmark_results_deepseek_lmcache_warmup_20260324_135750
+benchmark_results_deepseek_lmcache_warmup_FINAL_20260324_154706
+benchmark_results_deepseek_new
+benchmark_results_deepseek_QLC_warmup_v2_20260325_054326
+benchmark_results_mistral_compiled
+benchmark_results_mistral_new
+benchmark_results_mistral_ssd_20260325_065704
+benchmark_results_mistral_ssd_20260325_080155
+benchmark_results_multi_user
+
+claude.md
+cursor_middle_chart_ssd_colors.md
+CODE_REVIEW_REPORT.md
+
+E2E_UAT_TESTING_GUIDE.md
+package.json
+!frontend/package.json
+pnpm-lock.yaml
+!frontend/pnpm-lock.yaml
+mykernal/
+benchmarks/
+CLAUDE.md
+
+Tactical_Sports_Analytics_Talk_Track.md
+Tactical_Sports_Analytics_User_Guide.md

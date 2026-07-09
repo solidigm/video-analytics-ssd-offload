@@ -1,0 +1,34 @@
+# Core Framework
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.10.0
+
+# HTTP Client
+httpx==0.28.0
+
+# Video Processing
+opencv-python-headless==4.10.0.84
+
+# Database
+asyncpg==0.30.0
+sqlalchemy[asyncio]==2.0.36
+alembic==1.14.0
+
+# Metrics
+prometheus-client==0.21.0
+
+# Utilities
+python-multipart==0.0.18
+python-dotenv==1.0.1
+aiofiles==24.1.0
+
+# LangChain (for American Football agent)
+langchain==0.3.14
+langchain-openai==0.2.14
+langgraph==0.2.60
+
+# Telemetry
+opentelemetry-api==1.29.0
+opentelemetry-sdk==1.29.0
+opentelemetry-instrumentation-httpx==0.50b0
+opentelemetry-exporter-otlp==1.29.0

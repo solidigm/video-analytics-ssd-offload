@@ -1,0 +1,42 @@
+# Created by Metrum AI for Solidigm
+
+# =============================================================================
+# vLLM + LMCache on Dynamo Runtime - NGC pre-built image
+# =============================================================================
+# Uses Dynamo NGC image (CUDA 12.9, vLLM v0.14.1, LMCache 0.3.12 included).
+# Rebuilds LMCache CUDA ops for Blackwell GPU (sm_120).
+# LMCacheConnectorV1 handles KV cache offloading to CPU RAM + NVMe SSD.
+# =============================================================================
+FROM nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.0.0
+
+# Ensure we have curl and build tools for LMCache CUDA ops rebuild
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl git build-essential ninja-build && \
+    rm -rf /var/lib/apt/lists/*
+
+# Rebuild LMCache from source for Blackwell (sm_120) without changing other deps
+ENV TORCH_CUDA_ARCH_LIST="12.0"
+ENV MAX_JOBS=8
+WORKDIR /build
+RUN git clone --depth 1 https://github.com/LMCache/LMCache.git && \
+    cd LMCache && \
+    pip install --no-cache-dir --no-build-isolation --no-deps -e . 2>&1 | tail -20
+
+# Verify the .so was rebuilt with sm_120
+RUN ls -la /build/LMCache/lmcache/*.so && \
+    python3 -c "import lmcache; print('LMCache installed')"
+
+RUN mkdir -p /mnt/ssd/kv_cache /app/configs
+# RUN mkdir -p /mnt/nvme2/kv_cache /app/configs
+
+WORKDIR /app
+
+ENV LMCACHE_CONFIG_FILE=/app/configs/lmcache_config.yaml
+ENV PYTHONHASHSEED=0
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=900s --retries=30 \
+    CMD curl -f http://localhost:8000/v1/models || exit 1
+
+ENTRYPOINT ["vllm", "serve"]
+CMD ["--help"]

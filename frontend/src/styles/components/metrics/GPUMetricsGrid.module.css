@@ -1,0 +1,74 @@
+/* Created by Metrum AI for Solidigm */
+
+/* GPU Metrics Grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+
+.gpuCard {
+  padding: 0.625rem;
+  background: var(--color-bg-tertiary);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.gpuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.gpuName {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.gpuUtil {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gpuStats {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statIcon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-text-muted);
+}
+
+.statValue {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.memorySection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.memoryText {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--color-text-muted);
+  text-align: right;
+}
